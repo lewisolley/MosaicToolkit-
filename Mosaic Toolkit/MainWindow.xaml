@@ -1,0 +1,78 @@
+﻿<Window x:Class="Mosaic_Toolkit.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:auto="clr-namespace:FeserWard.Controls;assembly=Intellibox"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid Margin="24,25">
+        <TabControl Margin="0,50,0,0">
+            <TabItem Header="Bulk Assign">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Assign From: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <auto:Intellibox DisplayedValueBinding="{Binding Name}"
+                                     SelectedValueBinding="{Binding ID}"
+                                     DataProvider="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=WorkerA}"
+                                     HorizontalAlignment="Left"
+                                     Margin="96,12,0,0"
+                                     VerticalAlignment="Top" 
+                                     Width="120"
+                                     MaxWidth="120"
+                                     ResultsHeight="180"
+                                     ResultsWidth="240"
+                                     ExplicitlyIncludeColumns="True"
+                                     Name="WorkerASearchBox"
+                                     LostFocus="WorkerASearchBox_LostFocus">
+                        <auto:Intellibox.Columns>
+                            <auto:IntelliboxColumn DisplayMemberBinding="{Binding ID}"
+                                                   Width="20"
+                                                   Header="Worker ID"/>
+                            <auto:IntelliboxColumn DisplayMemberBinding="{Binding Name}"
+                                                   Width="20"
+                                                   Header="Worker Name"/>
+                            <auto:IntelliboxColumn DisplayMemberBinding="{Binding Username}"
+                                                   Width="20"
+                                                   Header="Worker Username"/>
+                            <auto:IntelliboxColumn DisplayMemberBinding="{Binding Last Login}"
+                                                   Width="20"
+                                                   Header="Last Login:"/>
+                        </auto:Intellibox.Columns>
+                    </auto:Intellibox>
+                    <auto:Intellibox DisplayedValueBinding="{Binding Name}"
+                                     SelectedValueBinding="{Binding ID}"
+                                     DataProvider="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=WorkerB}"
+                                     HorizontalAlignment="Left"
+                                     Margin="295,12,0,0"
+                                     VerticalAlignment="Top" 
+                                     Width="120"
+                                     MaxWidth="120"
+                                     ResultsHeight="180"
+                                     ResultsWidth="240"
+                                     ExplicitlyIncludeColumns="True"
+                                     Name="WorkerBSearchBox"
+                                     LostFocus="WorkerBSearchBox_LostFocus">
+                        <auto:Intellibox.Columns>
+                            <auto:IntelliboxColumn DisplayMemberBinding="{Binding ID}"
+                                                   Width="30"
+                                                   Header="ID"/>
+                            <auto:IntelliboxColumn DisplayMemberBinding="{Binding Name}"
+                                                   Width="100"
+                                                   Header="Name"/>
+                            <auto:IntelliboxColumn DisplayMemberBinding="{Binding Username}"
+                                                   Width="80"
+                                                   Header="Username"/>
+                            <auto:IntelliboxColumn DisplayMemberBinding="{Binding Last Login}"
+                                                   Width="100"
+                                                   Header="Login:"/>
+                        </auto:Intellibox.Columns>
+                    </auto:Intellibox>
+                    <Label Content="To: " HorizontalAlignment="Left" Margin="243,10,0,0" VerticalAlignment="Top"/>
+                    
+                    <DataGrid HorizontalAlignment="Left" Margin="86,96,0,0" VerticalAlignment="Top" Height="129" Width="307" Name="grAllocations"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
