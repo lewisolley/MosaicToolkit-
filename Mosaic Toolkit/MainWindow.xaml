@@ -2,20 +2,30 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:l="clr-namespace:UIControls;assembly=SearchTextBox"
-        Title="MainWindow" Height="600" Width="800">
+        Title="Mosaic Toolkit" Height="600" Width="800">
     <Grid Margin="24,25">
         <TabControl Margin="0,50,0,0">
             <TabItem Header="Bulk Assign">
                 <Grid Background="#FFE5E5E5">
                     <Label Content="Assign From: " HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                    <l:SearchTextBox Height="25" Margin="280,10,0,0" VerticalAlignment="Top" Name="wrkSearchB" HorizontalAlignment="Left" Background="AliceBlue" Width="150" />
+                    <l:SearchTextBox Height="25" Margin="280,10,0,0" VerticalAlignment="Top" Name="wrkSearchB" HorizontalAlignment="Left" Background="AliceBlue" Width="150" ShowSectionButton="False" />
                     <Label Content="To: " HorizontalAlignment="Left" Margin="246,10,0,0" VerticalAlignment="Top"/>
-                    <l:SearchTextBox Height="25" Margin="91,10,0,0" VerticalAlignment="Top" Name="wrkSearchA" HorizontalAlignment="Left" Background="AliceBlue" Width="150" />
-                    <DataGrid HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Height="354" Width="714" Name="grAllocations"/>
+                    <l:SearchTextBox Height="25" Margin="91,10,0,0" VerticalAlignment="Top" Name="wrkSearchA" HorizontalAlignment="Left" Background="AliceBlue" Width="150" ShowSectionButton="False"/>
+                    <DataGrid HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Height="339" Width="231" Name="grAllocations"/>
+                    <DataGrid HorizontalAlignment="Left" Margin="280,89,0,0" VerticalAlignment="Top" Height="339" Width="231" x:Name="grAllocations_Copy"/>
+                    <Label Content="Worker A" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.156,-0.67" Width="231"/>
+                    <Label Content="Worker B" HorizontalAlignment="Left" Margin="280,58,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.156,-0.67" Width="231"/>
+                    <Button Content="&gt;" HorizontalAlignment="Left" Margin="246,190,0,0" VerticalAlignment="Top" Width="29" RenderTransformOrigin="0.724,3.049"/>
+                    <Button Content="&lt;" HorizontalAlignment="Left" Margin="246,242,0,0" VerticalAlignment="Top" Width="29" RenderTransformOrigin="0.724,3.049"/>
+                    <Button Content="Check" HorizontalAlignment="Left" Margin="557,174,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button Content="Assign" HorizontalAlignment="Left" Margin="557,269,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Button Content="Help" HorizontalAlignment="Left" Margin="516,42,0,0" VerticalAlignment="Top" Width="75" Click="Help_Button_Click"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="Workflow Migration">
+                <Grid Background="#FFE5E5E5">
+                    <Label Content="Coming Soon..." HorizontalAlignment="Left" Margin="120,150,0,0" VerticalAlignment="Top" Height="113" Width="489" FontSize="72"/>
+                </Grid>
             </TabItem>
         </TabControl>
 

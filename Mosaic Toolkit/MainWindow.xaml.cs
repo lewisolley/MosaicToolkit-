@@ -11,89 +11,52 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-//using FeserWard.Controls;
 using System.Data;
 using System.Data.SqlClient;
 using System.ComponentModel;
 using System.Collections;
 using System.Configuration;
+using UIControls;
+using System.Collections.Generic;
 
 namespace Mosaic_Toolkit
 {
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
-	/// 
-	public partial class MainWindow : Window
-	{
-		//public IIntelliboxResultsProvider WorkerA
-		//{
-		//    get;
-		//    private set;
-		//}
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    /// 
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
 
-		//public IIntelliboxResultsProvider WorkerB
-		//{
-		//    get;
-		//    private set;
-		//}
-		public MainWindow()
-		{
-			InitializeComponent();
-			//WorkerA = new WorkerSearchBox();
-			//WorkerB = new WorkerSearchBox();
-		}
+            List<string> sections = new List<string> { "Author", "Title", "Comment" };
+            wrkSearchA.SectionsList = sections;
+            wrkSearchB.SectionsList = sections;
 
-		private void WorkerASearchBox_LostFocus(object sender, RoutedEventArgs e)
-		{
-			getAllocations();
-		}
+            wrkSearchA.SectionsStyle = SearchTextBox.SectionsStyles.RadioBoxStyle;
+            wrkSearchB.SectionsStyle = SearchTextBox.SectionsStyles.RadioBoxStyle;
 
+            wrkSearchA.OnSearch += new RoutedEventHandler(wrkSearchA_OnSearch);
+            wrkSearchB.OnSearch += new RoutedEventHandler(wrkSearchB_OnSearch);
+        }
 
-		private void WorkerBSearchBox_LostFocus(object sender, RoutedEventArgs e)
-		{
+        private void wrkSearchB_OnSearch(object sender, RoutedEventArgs e)
+        {
 
-		}
+            
+        }
 
-		private void getAllocations()
-		{
-			throw new NotImplementedException();
-		}
-	}
+        private void wrkSearchA_OnSearch(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
-	// ***Old Implementation of Intellibox. Removed due to burden of searching asynchronously.***
-
-//    public class WorkerSearchBox : IIntelliboxResultsProvider
-//    {
-//        public IEnumerable DoSearch(string searchTerm, int maxResults, object extraInfo)
-//        {
-//            var query = String.Format(@" select 
-//															ID	'ID',
-//															(first_names + ' ' + last_names) 'Name',
-//															SYSTEM_USER_ID	'Username',
-//															LAST_LOGON	'Last Login'
-//														from WORKERS with(nolock)
-//														where 
-//														(first_names + ' ' + last_names) like '%{0}%'", searchTerm);
-//            var ds = new DataSet();
-//            var reader = new AppSettingsReader();
-//            var sCon = reader.GetValue("MOSTEST", typeof(string));
-//            try
-//            {
-//                using (var con = new SqlConnection())
-//                {
-//                    con.ConnectionString = (string)sCon;
-//                    var da = new SqlDataAdapter(query, con);
-//                    da.Fill(ds);
-//                }
-//                return ((IListSource)ds.Tables[0]).GetList();
-//            }
-//            catch (Exception ex)
-//            {
-//                Console.WriteLine(ex.ToString());
-//                return null;
-//            }
-
-//        }
-//    }
+        private void Help_Button_Click(object sender, RoutedEventArgs e)
+        {
+            var helpWin = new Help();
+            helpWin.Show();
+        }
+    }
 }
